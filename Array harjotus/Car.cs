@@ -9,7 +9,9 @@ namespace Array_harjotus
         public string brand;
         public int kilometers;
         public bool taxPaid;
+        public string[] items;
 
+        
         public Car()
         {
 
@@ -28,11 +30,24 @@ namespace Array_harjotus
 
         public void PrintCarData()
         {
+            Console.WriteLine("\n");
             Console.WriteLine($"Auton merkki on: {brand}.");
             Console.WriteLine($"Autolla on ajettu: {kilometers}.");
             Console.WriteLine($"Onko auton verot maksettu?: {taxPaid}");
+            if (items != null && items.Length > 0)
+            {
+                Console.WriteLine($"Mitä herkkuja autosta löytyy?:");
+                foreach (string item in items)
+                {
+                    Console.Write(item + " " );
+                }
+                Console.WriteLine("\n");
+            }
         }
 
-        
+        public void GetItems(string[] swag)
+        {
+            this.items = swag;
+        }
     }
 }

@@ -31,15 +31,60 @@ namespace Array_harjotus
             auto5.kilometers = 485000;
             auto5.taxPaid = false;
 
+            #region pari arrayta
+            Console.WriteLine("printataan ekaa arrayta");
             Car[] carsOne = new Car[3] {auto1, auto3, auto5};
             foreach (Car carsArrayOne in carsOne)
             {
+                
                 Console.WriteLine(carsArrayOne.brand);
                 Console.WriteLine(carsArrayOne.kilometers);
             }
-
-            Car[] carsTwo = { auto2, auto3, auto4 };
             
+            Console.WriteLine("\nprintataan tokaa arrayta");
+            Car[] carsTwo = { auto2, auto3, auto4 };
+            carsTwo[0].AddKilometers();
+            carsTwo[1].AddKilometers();
+            carsTwo[0].taxPaid = true;
+            carsTwo[1].taxPaid = true;
+            carsTwo[2].taxPaid = false;
+            foreach (Car carsArrayTwo in carsTwo)
+            {
+                Console.WriteLine(carsArrayTwo.brand);
+                Console.WriteLine(carsArrayTwo.kilometers);
+            }
+
+            carsTwo.SetValue(auto5, 0);
+            Console.WriteLine("\nprintataan muutettua carsTwo arrayta: " + carsTwo.Length);
+           
+            Console.WriteLine("\nprintataan tokaa arrayta muutoksilla");
+            foreach (Car carsArrayTwo in carsTwo)
+            {
+                if (carsArrayTwo.taxPaid == true)
+                {
+                    Console.WriteLine(carsArrayTwo.brand);
+                    Console.WriteLine(carsArrayTwo.kilometers);
+                    Console.WriteLine(carsArrayTwo.taxPaid);
+                }
+            }
+            #endregion pari arrayta
+
+            string[] items = { "Radio,", "Tape player,", "Wunderbaum" };
+
+            foreach (Car carsArrayTwo in carsTwo)
+            {
+                carsArrayTwo.GetItems(items);
+            }
+
+            foreach (Car carsArrayTwo in carsTwo)
+            {
+                carsArrayTwo.PrintCarData();
+            }
+            
+            foreach (Car carsArrayOne in carsOne)
+            {
+                carsArrayOne.PrintCarData();
+            }
         }
     }
 }
